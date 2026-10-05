@@ -9,10 +9,14 @@ Next.js 15 + Supabase + OpenAI. Deployable to Vercel. Status: landing page, AI a
 4. **Environment variables** (Vercel, Settings): `NEXT_PUBLIC_APP_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` (Supabase, Project Settings, API), `OPENAI_API_KEY` (platform.openai.com), optional `OPENAI_MODEL`. Never expose the service role key.
 5. Deploy. `/` shows the landing page; `/widget.js` serves the chat widget.
 
-## Test the widget
-There is no signup yet, so create an organization by hand in the Supabase SQL editor: insert a row in `organizations`, one in `ai_settings`, one in `subscriptions` (status `active`) and one in `website_widgets`; copy its `public_id`. Then on any page:
-`<script src="https://YOUR_APP_URL/widget.js" data-closer-id="PUBLIC_ID"></script>`
-Add rows to `properties` so the AI has listings to search. Calendar booking returns "not connected" until Phase 6.
+## Set up sign-in (Supabase)
+Authentication, URL Configuration: set Site URL to your Vercel URL and add `YOUR_APP_URL/auth/callback` to Redirect URLs. For quick testing you can turn off "Confirm email" under Authentication, Providers, Email.
+
+## Try it
+1. Open `/signup`, create an account, then enter your agency name. This creates your organization with a 14-day trial.
+2. Dashboard, Integrations: copy the website chat snippet and paste it into any HTML page.
+3. To give the AI listings, add rows to the `properties` table in the Supabase table editor (set `organization_id` to yours).
+Calendar booking returns "not connected" until Google Calendar is built.
 
 ## Local
 `npm install`, copy `.env.example` to `.env.local`, then `npm run dev` / `npm run build` / `npm run lint` (type check) / `npm test`.
