@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Closer — Your AI Sales Employee for Real Estate</title>
+<meta name="description" content="Closer responds to real-estate leads, qualifies prospects, recommends properties and books viewings automatically.">
+<meta property="og:title" content="Closer — Your AI Sales Employee for Real Estate">
+<meta property="og:description" content="Closer responds to real-estate leads, qualifies prospects, recommends properties and books viewings automatically.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--fg:#0A0A0A;--soft:#F5F5F5;--bd:#E5E7EB;--mut:#6B7280;--acc:#2563EB;--ok:#16A34A;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A0A0A;--fg:#F5F5F5;--soft:#151515;--bd:#262626;--mut:#9CA3AF;--acc:#3B82F6}}
+:root[data-theme="dark"]{--bg:#0A0A0A;--fg:#F5F5F5;--soft:#151515;--bd:#262626;--mut:#9CA3AF;--acc:#3B82F6}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--bd)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:19px;letter-spacing:-.02em}
+.logo svg{width:26px;height:26px}
+nav{display:flex;align-items:center;gap:22px;font-size:14px;color:var(--mut)}
+nav a:hover{color:var(--fg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 20px;border-radius:10px;font:600 14px Inter,system-ui,sans-serif;border:1px solid var(--fg);background:var(--fg);color:var(--bg);cursor:pointer;transition:opacity .15s}
+.btn:hover{opacity:.85}
+.btn.s{background:transparent;color:var(--fg);border-color:var(--bd)}
+.btn.b{background:var(--acc);border-color:var(--acc);color:#fff}
+.btn.sm{height:36px;padding:0 14px;border-radius:8px}
+section{padding:84px 0;border-top:1px solid var(--bd)}
+.hero{border:0;padding:64px 0 76px}
+h1,h2{text-transform:uppercase;letter-spacing:-.03em;line-height:1.05;margin:0 0 18px;font-weight:700}
+h1{font-size:clamp(38px,6vw,64px)}
+h2{font-size:clamp(28px,4.5vw,40px);max-width:16em}
+h3{margin:0 0 6px;font-size:16px}
+p{margin:0 0 14px}
+.lead{font-size:clamp(17px,2vw,19px);color:var(--mut);max-width:34em}
+.mut{color:var(--mut)}
+.sm-t{font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.grid{display:grid;gap:16px;margin-top:32px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.box{border:1px solid var(--bd);border-radius:12px;padding:20px;background:var(--bg)}
+.win{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--bg);box-shadow:0 8px 28px rgba(0,0,0,.07)}
+.wh{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;border-bottom:1px solid var(--bd);background:var(--soft);font-size:13px;font-weight:600}
+.live{display:inline-flex;align-items:center;gap:7px}
+.live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.live.off::before{background:var(--mut)}
+.msgs{display:flex;flex-direction:column;gap:9px;padding:14px}
+.m{max-width:86%;padding:9px 13px;border-radius:12px;font-size:14px;line-height:1.45}
+.m.c{align-self:flex-end;background:var(--fg);color:var(--bg)}
+.m.a{align-self:flex-start;background:var(--soft);border:1px solid var(--bd)}
+.m.t{color:var(--mut);animation:p 1s infinite}
+@keyframes p{50%{opacity:.4}}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 14px}
+.tag{font-size:12px;font-weight:500;border:1px solid var(--bd);border-radius:999px;padding:3px 10px;background:var(--bg)}
+.tag.q{border-color:var(--acc);color:var(--acc)}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:11px 14px;border-top:1px solid var(--bd);font-size:14px;color:var(--mut)}
+.kv b{font-weight:500;text-align:right}
+.kv.on{color:var(--fg)}
+.kv.on b{font-weight:600}
+.demo{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;margin-top:32px;align-items:start}
+#chat{height:480px;overflow-y:auto}
+.props{display:grid;gap:8px;align-self:stretch}
+.pc{border:1px solid var(--bd);border-radius:10px;padding:12px;font-size:14px;display:grid;gap:2px;background:var(--bg)}
+.pc b{font-size:15px}
+.price{color:var(--acc);font-weight:600}
+.pc .btn{margin-top:8px;justify-self:start}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.sys{align-self:center;font-size:12px;color:var(--mut);text-align:center}
+.flow{list-style:none;padding:0;margin:32px 0 0;display:grid;grid-template-columns:repeat(var(--c,6),1fr);gap:22px}
+.flow li{position:relative;border:1px solid var(--bd);border-radius:10px;padding:14px 12px;font-size:14px;font-weight:600;text-align:center;background:var(--bg)}
+.flow li:not(:last-child)::after{content:"";position:absolute;left:100%;top:50%;width:22px;border-top:2px solid var(--bd)}
+.flow li:last-child{background:var(--acc);border-color:var(--acc);color:#fff}
+.steps{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.steps li{position:relative;padding-top:48px}
+.steps .n{position:absolute;top:0;left:0;width:36px;height:36px;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;font-size:12px;font-weight:600;z-index:1}
+.steps li:not(:last-child)::before{content:"";position:absolute;top:17px;left:36px;right:-20px;border-top:2px solid var(--bd)}
+.cmp{grid-template-columns:1fr 1fr}
+.cmp ul{list-style:none;padding:0;margin:14px 0 0}
+.cmp li{display:flex;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--bd);font-size:15px}
+.cmp li::before{content:"";flex:none;width:12px;border-top:2px solid var(--mut)}
+.cmp .with{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.cmp .with li{border-color:rgba(128,128,128,.35);font-weight:500}
+.cmp .with li::before{width:6px;height:11px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-2px);margin:0 3px}
+.cap h3{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.st{font-size:11px;font-weight:600;color:var(--mut);border:1px solid var(--bd);border-radius:999px;padding:2px 8px;white-space:nowrap}
+.plans{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.plan{display:flex;flex-direction:column}
+.plan.pop{border:2px solid var(--acc)}
+.plan .pr{font-size:34px;font-weight:700;letter-spacing:-.03em;margin:6px 0}
+.plan .pr small{font-size:14px;font-weight:400;color:var(--mut)}
+.plan ul{list-style:none;padding:0;margin:12px 0 20px;font-size:14px;flex:1}
+.plan li{padding:6px 0;border-top:1px solid var(--bd)}
+.soon{font-size:11px;color:var(--mut);margin-left:6px}
+.cta{text-align:center}
+.cta h2,.cta .lead{margin-left:auto;margin-right:auto}
+.cta .row{justify-content:center}
+footer{border-top:1px solid var(--bd);padding:40px 0;font-size:14px;color:var(--mut)}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+footer nav{flex-wrap:wrap;gap:18px}
+@media(max-width:860px){
+.two,.demo,.cmp{grid-template-columns:1fr;gap:28px}.demo{gap:16px}
+.steps{grid-template-columns:1fr;gap:26px}.steps li{padding:5px 0 0 54px}
+.steps li:not(:last-child)::before{top:40px;bottom:-30px;left:17px;right:auto;border-top:0;border-left:2px solid var(--bd)}
+.flow{grid-template-columns:1fr;gap:20px;max-width:340px}
+.flow li:not(:last-child)::after{left:50%;top:100%;width:0;height:20px;border-top:0;border-left:2px solid var(--bd)}
+.hide{display:none}section{padding:60px 0}.hero{padding:40px 0 56px}nav{gap:14px}#chat{height:440px}}
+@media(prefers-reduced-motion:reduce){.m.t{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lg" viewBox="0 0 28 28"><path d="M22 7.5A9.5 9.5 0 1 0 22 20.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><circle cx="21" cy="14" r="2.6" fill="#2563EB"/></symbol></svg>
+
+<header><div class="w">
+<a class="logo" href="#" aria-label="Closer home"><svg aria-hidden="true"><use href="#lg"/></svg>Closer</a>
+<nav aria-label="Main"><a class="hide" href="#product">Product</a><a class="hide" href="#how">How it works</a><a class="hide" href="#pricing">Pricing</a><a href="/login">Login</a><a class="btn b sm" href="/signup">Start free</a></nav>
+</div></header>
+
+<main>
+<section class="hero"><div class="w two">
+<div>
+<h1>Your AI sales employee.</h1>
+<p class="lead" style="color:var(--fg)">Closer responds to every property lead, qualifies buyers, matches them with the right listings and books viewings — automatically.</p>
+<p class="lead">Turn more enquiries into qualified buyers without adding another salesperson.</p>
+<div class="row"><a class="btn b" href="/signup">Start free</a><a class="btn s" href="#demo">See how it works</a></div>
+<p class="mut sm-t">No credit card required.</p>
+</div>
+<div class="win" aria-label="Example lead conversation">
+<div class="wh"><span class="live">Closer is active</span><span class="mut">WhatsApp · New lead</span></div>
+<div class="msgs">
+<div class="m c">Hi, I’m looking for a 2 bedroom apartment in Milan. Budget around €450k.</div>
+<div class="m a">Absolutely. Which areas are you considering?</div>
+<div class="m c">Central Milan.</div>
+<div class="m a">Got it. Are you looking for something ready to move into?</div>
+</div>
+<div class="tags"><span class="tag">€450k</span><span class="tag">Central Milan</span><span class="tag">2 bedrooms</span><span class="tag q">Qualifying</span></div>
+</div>
+</div></section>
+
+<section id="demo"><div class="w">
+<h2>See Closer work a real lead.</h2>
+<p class="lead">Watch a buyer enquiry become a qualified lead and a booked viewing. Click the buttons to take part.</p>
+<p class="mut sm-t">Interactive demo with sample listings and data. <button class="btn s sm" id="rp" type="button">Replay</button></p>
+<div class="demo">
+<div class="win"><div class="wh"><span class="live">Closer is active</span><span class="mut">Website chat</span></div><div id="chat" class="msgs" role="log" aria-live="polite" aria-label="Demo conversation"></div></div>
+<div class="win"><div class="wh"><span>Lead profile</span><span class="mut">Updates live</span></div>
+<div class="kv"><span>Status</span><b id="f-sta">Not yet known</b></div>
+<div class="kv"><span>Budget</span><b id="f-bud">Not yet known</b></div>
+<div class="kv"><span>Location</span><b id="f-loc">Not yet known</b></div>
+<div class="kv"><span>Type</span><b id="f-typ">Not yet known</b></div>
+<div class="kv"><span>Bedrooms</span><b id="f-bed">Not yet known</b></div>
+<div class="kv"><span>Condition</span><b id="f-con">Not yet known</b></div>
+</div>
+</div>
+</div></section>
+
+<section id="product"><div class="w">
+<h2>Every lead gets a response.</h2>
+<p class="lead">Most agencies don’t have a lead problem. They have a response-time problem.</p>
+<p class="lead" style="color:var(--fg)">Closer responds instantly, qualifies the opportunity, recommends relevant properties and follows up automatically — so your agents can focus on closing.</p>
+<ol class="flow"><li>New lead</li><li>Instant response</li><li>Qualified</li><li>Property match</li><li>Viewing booked</li><li>Agent takes over</li></ol>
+</div></section>
+
+<section id="how"><div class="w">
+<h2>How it works.</h2>
+<ol class="steps">
+<li><span class="n">01</span><h3>Respond</h3><p class="mut sm-t">Every new enquiry gets an instant response.</p></li>
+<li><span class="n">02</span><h3>Qualify</h3><p class="mut sm-t">Closer asks the right questions to understand the buyer.</p></li>
+<li><span class="n">03</span><h3>Match</h3><p class="mut sm-t">Closer finds properties that fit the buyer’s requirements.</p></li>
+<li><span class="n">04</span><h3>Book</h3><p class="mut sm-t">Closer schedules a viewing or call.</p></li>
+<li><span class="n">05</span><h3>Follow up</h3><p class="mut sm-t">Closer keeps the conversation moving until the lead is ready.</p></li>
+</ol>
+</div></section>
+
+<section><div class="w">
+<h2>Slow replies cost you buyers.</h2>
+<div class="grid cmp">
+<div class="box"><h3>Without Closer</h3><ul><li>Leads wait for a response</li><li>Agents repeat the same questions</li><li>Follow-ups get forgotten</li><li>Buyers receive generic property recommendations</li><li>Valuable leads get lost</li></ul></div>
+<div class="box with"><h3>With Closer</h3><ul><li>Instant response</li><li>Automatic qualification</li><li>Relevant property matches</li><li>Automatic follow-ups</li><li>Viewings booked</li><li>Human handoff when needed</li></ul></div>
+</div></div></section>
+
+<section><div class="w two">
+<div>
+<h2>Your team stays in control.</h2>
+<p class="lead" style="color:var(--fg)">Closer handles the conversations. Your agents close the deals.</p>
+<p class="lead">Closer handles repetitive questions, qualification and follow-ups. When a lead is ready to talk to a human, your agent takes over instantly.</p>
+</div>
+<div class="win"><div class="wh"><span id="st" class="live">AI active</span><button class="btn sm" id="tk" type="button">Take over</button></div>
+<div class="kv on"><span>Lead status</span><b>Qualified buyer</b></div>
+<div class="kv on"><span>Budget</span><b>€450,000</b></div>
+<div class="kv on"><span>Location</span><b>Central Milan</b></div>
+<div class="kv on"><span>Requirement</span><b>2 bedroom</b></div>
+<div class="kv on"><span>Intent</span><b>High</b></div>
+<div class="kv"><span class="sm-t">Sample lead. Try the button.</span></div>
+</div>
+</div></section>
+
+<section><div class="w">
+<h2>Built around your sales process.</h2>
+<div class="grid g4 cap">
+<div class="box"><h3>Website <span class="st">In development</span></h3><p class="mut sm-t">Capture and respond to website enquiries instantly.</p></div>
+<div class="box"><h3>WhatsApp <span class="st">Coming soon</span></h3><p class="mut sm-t">Continue conversations where your buyers already are.</p></div>
+<div class="box"><h3>Property listings <span class="st">In development</span></h3><p class="mut sm-t">Match buyers with the properties you actually have.</p></div>
+<div class="box"><h3>Calendar <span class="st">Coming soon</span></h3><p class="mut sm-t">Book viewings directly into your team’s calendar.</p></div>
+<div class="box"><h3>CRM <span class="st">Coming soon</span></h3><p class="mut sm-t">Keep qualified leads and conversations organized.</p></div>
+</div></div></section>
+
+<section><div class="w">
+<h2>Built for teams that sell property.</h2>
+<div class="grid g4">
+<div class="box"><h3>Real estate agencies</h3><p class="mut sm-t">Handle more enquiries without adding headcount.</p></div>
+<div class="box"><h3>Independent agents</h3><p class="mut sm-t">Let Closer handle repetitive conversations while you focus on deals.</p></div>
+<div class="box"><h3>Property developers</h3><p class="mut sm-t">Qualify buyer interest and route serious prospects to your sales team.</p></div>
+<div class="box"><h3>Property managers</h3><p class="mut sm-t">Automate enquiries, qualification and follow-ups.</p></div>
+</div></div></section>
+
+<section><div class="w">
+<h2>Your agents shouldn’t spend their day chasing leads.</h2>
+<p class="lead">Let Closer handle the first conversation, qualification and follow-up. Your team steps in when it matters.</p>
+<ol class="flow" style="--c:4"><li>AI</li><li>Qualified lead</li><li>Agent</li><li>Deal</li></ol>
+</div></section>
+
+<section id="pricing"><div class="w">
+<h2>Pricing</h2>
+<p class="lead">14-day free trial on every plan. Features marked “Coming soon” are on the roadmap.</p>
+<div class="grid plans">
+<div class="box plan"><h3>Starter</h3><p class="mut sm-t">For small agencies.</p><div class="pr">€99<small>/month</small></div><ul><li>AI lead responses</li><li>Website chat</li><li>Lead qualification</li><li>Property matching</li><li>Human takeover</li></ul><a class="btn s" href="/signup">Start free</a></div>
+<div class="box plan pop"><h3>Pro</h3><p class="mut sm-t">For growing teams.</p><div class="pr">€249<small>/month</small></div><ul><li>Everything in Starter</li><li>Multiple agents</li><li>WhatsApp<span class="soon">Coming soon</span></li><li>Calendar booking<span class="soon">Coming soon</span></li></ul><a class="btn b" href="/signup">Start free</a></div>
+<div class="box plan"><h3>Business</h3><p class="mut sm-t">For larger agencies.</p><div class="pr">€499<small>/month</small></div><ul><li>Everything in Pro</li><li>Higher usage limits</li><li>Priority support</li></ul><a class="btn s" href="/signup">Start free</a></div>
+</div></div></section>
+
+<section class="cta"><div class="w">
+<h2>Stop losing good leads.</h2>
+<p class="lead">Give every enquiry an instant response with Closer.</p>
+<div class="row"><a class="btn b" href="/signup">Start free</a></div>
+<p class="mut sm-t">No credit card required. Cancel anytime.</p>
+</div></section>
+</main>
+
+<footer><div class="w">
+<div><a class="logo" href="#" aria-label="Closer home"><svg aria-hidden="true"><use href="#lg"/></svg>Closer</a><p style="margin:8px 0 0">Your AI sales employee.</p></div>
+<nav aria-label="Footer"><a href="#product">Product</a><a href="#pricing">Pricing</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></nav>
+</div></footer>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},chat=$("chat"),rm=matchMedia("(prefers-reduced-motion:reduce)").matches,run=0,started=false;
+var P=[["Bright 2-bed","Brera, Milan","€445,000","2 bd · 1 ba · 82 m²"],["Renovated 2-bed","Porta Venezia, Milan","€430,000","2 bd · 1 ba · 76 m²"],["Top-floor 2-bed","Navigli, Milan","€449,000","2 bd · 2 ba · 88 m²"]];
+var K=["sta","bud","loc","typ","bed","con"];
+function wait(ms){var my=run;return new Promise(function(ok,no){setTimeout(function(){my===run?ok():no()},rm?0:ms)})}
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function put(n){chat.appendChild(n);chat.scrollTop=chat.scrollHeight;return n}
+function say(w,t){return put(el("div","m "+w,t))}
+function set(k,v){var r=$("f-"+k);r.textContent=v;r.parentNode.className="kv on"}
+async function ai(t){var ty=put(el("div","m a t","Closer is typing…"));await wait(1000);ty.remove();say("a",t)}
+function acts(l,fn){var d=put(el("div","acts"));l.forEach(function(x,i){var b=el("button","btn sm"+(i?" s":""),x);b.type="button";b.onclick=function(){d.remove();say("c",x);fn(x).catch(function(){})};d.appendChild(b)})}
+function cards(){var w=put(el("div","props"));P.forEach(function(p){var c=el("div","pc"),b=el("button","btn s sm","View property");b.type="button";b.onclick=function(){b.textContent="Opens the agency listing"};c.appendChild(el("b","",p[0]));c.appendChild(el("span","mut",p[1]));c.appendChild(el("span","price",p[2]));c.appendChild(el("span","mut",p[3]));c.appendChild(b);w.appendChild(c)})}
+async function book(){await ai("Of course. These times are free on Tuesday:");acts(["11:00","14:30","17:00"],async function(t){await wait(500);await ai("You’re booked for Tuesday at "+t+". Your agent has been notified.");set("sta","Viewing booked");put(el("div","sys","Sample booking. In the product, this is added to the agency calendar."))})}
+async function more(){await ai("Of course. I can widen the search or adjust the budget. What would you prefer?");acts(["Nearby areas","Adjust budget","Talk to an agent"],async function(l){await wait(500);if(l==="Talk to an agent"){await ai("Understood. I’m passing this conversation to an agent now.");set("sta","With an agent");put(el("div","sys","AI paused. Agent notified."))}else{await ai("Noted. I’ll refine the search and send updated matches.")}})}
+async function play(){
+ ++run;chat.innerHTML="";K.forEach(function(k){var r=$("f-"+k);r.textContent="Not yet known";r.parentNode.className="kv"});
+ try{
+  await wait(500);say("c","Hi, I’m looking for a 2 bedroom apartment in Milan. Budget around €450k.");
+  set("bud","€450,000");set("typ","Apartment");set("bed","2");set("loc","Milan");set("sta","Qualifying");
+  await wait(600);await ai("Absolutely. Which areas are you considering?");
+  await wait(900);say("c","Central Milan.");set("loc","Central Milan");
+  await wait(600);await ai("Got it. Are you looking for something ready to move into, or would you consider a property that needs renovation?");
+  await wait(900);say("c","Ready to move into.");set("con","Ready to move in");set("sta","Qualified");
+  await wait(600);await ai("Perfect. I found 3 properties that match your budget, location and requirements.");
+  cards();await wait(700);await ai("Would you like me to arrange a viewing?");
+  acts(["Book a viewing","See more properties"],function(x){return x==="Book a viewing"?book():more()});
+ }catch(e){}
+}
+$("rp").onclick=function(){started=true;play()};
+if("IntersectionObserver" in window){new IntersectionObserver(function(e,o){if(e[0].isIntersecting&&!started){started=true;play();o.disconnect()}},{threshold:.3}).observe(chat)}else{started=true;play()}
+var ai_=true,st=$("st"),tk=$("tk");
+tk.onclick=function(){ai_=!ai_;st.className=ai_?"live":"live off";st.textContent=ai_?"AI active":"AI paused — you’re in control";tk.textContent=ai_?"Take over":"Return to AI"};
+})();
+</script>
+</body>
+</html>
