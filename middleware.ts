@@ -4,7 +4,13 @@ import { NextResponse, type NextRequest } from "next/server";
 // Refreshes the session cookie and guards private pages. Public pages (/, widget, API) are not matched.
 export async function middleware(req: NextRequest) {
   let res = NextResponse.next({ request: req });
-  const supabase = createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  // Keep the preview usable when the optional Supabase integration is not connected.
+  if (!supabaseUrl || !supabaseAnonKey) return res;
+
+  const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
     cookies: {
       getAll: () => req.cookies.getAll(),
       setAll: (list: Parameters<SetAllCookies>[0]) => {
